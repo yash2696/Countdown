@@ -2,8 +2,10 @@
 var secondsRemaining,intervalHandle;
 
 function resetPage() {
-	document.getElementById("start").disabled = false;
+	document.getElementById("start").disabled = false;  //disables the start button once the timer is started.
 }
+
+// cheks for the seconds remaining and displays the desired format in MM:SS
 
 function tick() {
 	var minutes = Math.floor(secondsRemaining / 60);
@@ -27,6 +29,7 @@ function tick() {
 	secondsRemaining--;
 }
 
+// set a time interval of 1 second to call tick()
 function startCountDown() {
 	var time = document.getElementById("time").value;
 	if(isNaN(time) || time === "") {
@@ -39,6 +42,7 @@ function startCountDown() {
 	document.getElementById("start").style.backgroundColor = "#6E6E6E";
 }
 
+//calls startCountDown() on window load.
 window.onload = function() {
 	var start = document.getElementById("start");
 	start.onclick = function() {
